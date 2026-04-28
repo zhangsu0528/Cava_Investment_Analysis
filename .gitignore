@@ -219,3 +219,4 @@ __marimo__/
 .env
 data/*.csv
 data/earnings_transcripts/
+venv/
