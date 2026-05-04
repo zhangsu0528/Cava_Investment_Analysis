@@ -6,7 +6,7 @@
 ## 1. Data Sources & Evaluation
 
 **Primary Data: CAVA Quarterly Fundamentals**  
-Source: SEC filings, earnings press releases, and investor relations materials (ir.cava.com). Coverage: 15 quarters (Q2 2022–Q4 2025); 12 usable after lag construction and target shifting. Key variables: SSSG%, AUV, restaurant-level margin, digital revenue mix, net new openings, adjusted EBITDA margin, and management guidance events. Revenue was normalized to weekly revenue to account for CAVA's variable fiscal quarter lengths (Q1 = 16 weeks, Q2–Q4 = 12 weeks).
+Source: SEC filings, earnings press releases. Coverage: 15 quarters (Q2 2022–Q4 2025); 12 usable after lag construction and target shifting. Key variables: SSSG%, AUV, restaurant-level margin, digital revenue mix, net new openings, adjusted EBITDA margin, and management guidance events. Revenue was normalized to weekly revenue to account for CAVA's variable fiscal quarter lengths (Q1 = 16 weeks, Q2–Q4 = 12 weeks).
 
 **Alternative Data Tested**
 
@@ -14,13 +14,13 @@ Source: SEC filings, earnings press releases, and investor relations materials (
 |--------|----------|---------|
 | Google Trends (pytrends) | Jan 2022–Apr 2026 | Too low-signal; CAVA search interest max = 2/100 |
 | Reddit sentiment (VADER) | Sparse (~5 posts/quarter) | Qualitatively useful; insufficient for modeling |
-| News sentiment (Finnhub) | Jan 2025–May 2026 | Only 3 quarters; too short for time series |
+| News sentiment (Finnhub) | Jan 2025–May 2026 | Only 3 quarters given free tier limitation; too short for time series |
 | Analyst actions (yfinance) | Jul 2023–May 2026 | Zero sell ratings; r=-0.16 with SSSG |
 
 All four were included in the initial feature set and zeroed out by Lasso regularization, suggesting limited independent predictive value at quarterly frequency with n=12.
 
 **Earnings Call Transcripts**  
-Source: Capital IQ — 11 transcripts (Q2 2023–Q4 2025), extracted via pdfplumber. Transcripts were split into prepared remarks and Q&A using Capital IQ section markers; boilerplate disclaimers were filtered. Sentiment was scored using VADER and FinBERT (ProsusAI/finbert), a BERT model fine-tuned on financial text. FinBERT was preferred because VADER assigns near-uniform scores across all quarters (~0.36), while FinBERT captures more variation in financial language. Key finding: prepared-remarks sentiment was negatively correlated with next-quarter SSSG (r=-0.502), suggesting that management tone can remain positive even as fundamentals deteriorate. Transcripts were used as a qualitative overlay, not a model input.
+Source: Capital IQ (Q2 2023–Q4 2025). Transcripts were split into prepared remarks and Q&A using Capital IQ section markers; boilerplate disclaimers were filtered. Sentiment was scored using VADER and FinBERT. FinBERT was preferred because VADER assigns near-uniform scores across all quarters (~0.36), while FinBERT captures more variation in financial language. Key finding: prepared-remarks sentiment was negatively correlated with next-quarter SSSG (r=-0.502), suggesting that management tone can remain positive even as fundamentals deteriorate. Transcripts were used as a qualitative overlay, not a model input.
 
 ---
 
@@ -32,16 +32,6 @@ Source: Capital IQ — 11 transcripts (Q2 2023–Q4 2025), extracted via pdfplum
 **Why Lasso:** With only 12 usable observations, standard linear regression overfits easily and Random Forest lacks sufficient data. Lasso's L1 regularization shrinks irrelevant coefficients to zero, performing automatic feature selection while preserving interpretability.
 
 **Why LOOCV:** A standard 80/20 split yields only 2–3 test observations, which is too few for reliable evaluation. LOOCV trains on n-1 samples and tests on the remaining one, repeated n times, maximizing data use while providing an out-of-sample-style error estimate.
-
-**Feature selection path:**
-
-| Model Version | MAE | R² |
-|---------------|-----|-----|
-| All 19 features | 6.33% | 0.141 |
-| Fundamentals only | 4.84% | 0.425 |
-| + guidance_cut flag | 4.55% | 0.481 |
-| − digital_mix_qoq | 4.07% | 0.518 |
-| **Final model** | **3.63%** | **0.614** |
 
 **Final 4 features:**
 

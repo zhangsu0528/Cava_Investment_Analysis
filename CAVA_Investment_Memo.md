@@ -3,7 +3,7 @@ Date: May 4, 2026 | Price: $90.98 | Sector: Consumer — Restaurants
 
 ## 1. Recommendation
 
-I recommend a neutral-to-cautious view on CAVA into Q1 2026 earnings, with medium event risk and medium conviction. My model forecasts Q1 2026 SSSG below management’s FY2026 guidance range, suggesting downside risk if SSSG (Same Store Sales Growth) recovery remains weak. However, given the small sample size, CAVA’s still-positive relative comp performance versus peers, and constructive qualitative signals from recent earnings commentary, I would frame the view as cautious rather than outright negative.
+I recommend a neutral-to-cautious view on CAVA into Q1 2026 earnings, with medium event risk and medium conviction. My model forecasts Q1 2026 SSSG below management’s FY2026 guidance range, suggesting downside risk if SSSG recovery remains weak. However, given the small sample size, CAVA’s still-positive relative comp performance versus peers, and constructive qualitative signals from recent earnings commentary, I would frame the view as cautious rather than outright negative.
 
 At approximately 48x EV/EBITDA, CAVA’s premium valuation leaves limited room for another quarter of comp sales disappointment. While the long-term unit growth story remains attractive, the near-term risk is that investors begin to question whether revenue growth is becoming increasingly dependent on new restaurant openings rather than organic same-store momentum.
 
@@ -17,9 +17,9 @@ Conviction: Medium
 
 ![Valuation Comparison](outputs/figures/valuation_comparison.png)
 
-CAVA trades at a meaningful premium to restaurant peers, reflecting investor confidence in its long-term unit growth, strong brand positioning, and attractive restaurant-level economics. However, this premium also increases the stock’s sensitivity to any evidence of slowing same-store sales momentum.
+CAVA trades at a premium to restaurant peers, reflecting investor confidence in its long-term unit growth, strong brand positioning, and attractive restaurant-level economics. However, this premium also increases the stock’s sensitivity to any evidence of slowing same-store sales momentum.
 
-Across the fast-casual and restaurant peer set, FY2025 comp sales trends were pressured, suggesting that part of the slowdown may be sector-wide rather than CAVA-specific. CAVA still delivered positive FY2025 SSSG while several peers posted negative comps, which supports the quality of the brand. The key issue is not whether CAVA is a weak business; rather, it is whether the current valuation already prices in a faster SSSG recovery than the data supports.
+Across the fast-casual and restaurant peer set, FY2025 comp sales trends were pressured, suggesting that part of the slowdown may be sector-wide rather than CAVA-specific. CAVA still delivered positive FY2025 SSSG while several peers posted negative comps, which supports the quality of the brand. The key issue is not whether CAVA is a weak business. Rather, it is whether the current valuation already prices in a faster SSSG recovery than the data supports.
 
 ---
 
@@ -27,13 +27,11 @@ Across the fast-casual and restaurant peer set, FY2025 comp sales trends were pr
 
 ![Stock Price vs SSSG](outputs/figures/stock_price_vs_sssg_daily.png)
 
-SSSG is one of the most important operating KPIs for CAVA because it captures organic demand strength at existing restaurants, independent of unit count expansion. It reflects a combination of traffic, pricing, menu mix, and store-level productivity.
+SSSG is one of the most important operating KPIs for CAVA because it captures organic demand strength at existing restaurants, independent of unit count expansion. 
 
-For a high-growth restaurant company, total revenue growth is driven by two major components: new restaurant openings and same-store sales growth. New units can continue to support top-line growth, but SSSG is important because it indicates whether existing stores are still compounding. Strong SSSG supports the quality of growth; weak or decelerating SSSG suggests that revenue growth may increasingly rely on expansion rather than underlying customer demand.
+For a high-growth restaurant company, total revenue growth is driven by two major components: new restaurant openings and same-store sales growth. New units can continue to support top-line growth, but SSSG is important because it indicates whether existing stores are still compounding. Strong SSSG supports the quality of growth, while weak or decelerating SSSG suggests that revenue growth may increasingly rely on expansion rather than underlying customer demand.
 
-CAVA’s stock has also shown meaningful sensitivity around SSSG beats and misses. In prior quarters, SSSG misses were followed by sharp stock reactions, while stronger SSSG periods coincided with improved investor sentiment and multiple support. This makes forecasting SSSG useful for near-term positioning.
-
-As SSSG has decelerated from very high post-IPO levels to low single digits, the market’s focus is likely shifting from “how fast can CAVA grow units?” to “can CAVA maintain strong organic growth while scaling?”
+As SSSG decelerated, the market’s focus is likely shifting from “how fast can CAVA grow units?” to “can CAVA maintain strong organic growth while scaling?”
 
 ---
 
@@ -52,7 +50,6 @@ The final model selected four features:
 | Margin QoQ change | Bullish | Margin improvement can indicate stronger demand and better store-level execution |
 | Guidance cut flag | Bearish | Management guidance cuts have historically aligned with further deceleration |
 
-The most important empirical signal was digital revenue mix. Digital mix reached 38.9%, its highest level in the sample, and showed a negative one-quarter lag relationship with next-quarter SSSG. I interpret this as a directional leading indicator rather than a causal conclusion. One possible interpretation is that rising digital mix may reflect weaker in-store traffic or a shift in demand composition, but further data would be needed to separate traffic, ticket, and channel effects.
 
 ![SSSG Forecast](outputs/figures/sssg_forecast.png)
 
