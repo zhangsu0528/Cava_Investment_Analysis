@@ -1,0 +1,2 @@
+model,features,alpha,n_features,loocv_mae,loocv_rmse,loocv_r2,baseline_mae,improvement_pct
+Lasso CV,"['sssg_pct_lag2', 'digital_revenue_mix_pct', 'margin_qoq', 'guidance_cut']",0.5126,4,3.63,5.28,0.614,7.12,49.0

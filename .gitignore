@@ -220,3 +220,8 @@ __marimo__/
 data/*.csv
 data/earnings_transcripts/
 venv/
+.DS_Store
+data/.DS_Store
+data/raw/
+data/earnings_transcripts/
+data/quarterly_reports/
